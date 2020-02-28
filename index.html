@@ -10,12 +10,46 @@
 
 </head>
 <body>
+<script>
+
+let playerSelection;
+let computerSelection;
+
+  function game(){
+
+  }
+
+  function playerPlay(rock){
+    playerSelection = prompt("Type: Rock, Paper or Scissors.");
+    playerSelection = playerSelection.toLowerCase().charAt(0).toUpperCase() + playerSelection.slice(1);
+    console.log(playerSelection);
+    return playerSelection;
+
+  }
+
+  function computerPlay(){
+    computerSelection = Math.floor(Math.random() * 3);
+    (computerSelection == 0) ? computerSelection = "Rock" :
+    (computerSelection == 1) ? computerSelection ="Paper" :
+    (computerSelection == 2) ? computerSelection = "Scissors":
+    "";
+    console.log(computerSelection);
+    return (computerSelection);
+  }
+
+    switch(playerPlay() === computerPlay()) {
+      case true : alert("Tie! Play again.");
+      break;
+
+      case ((playerSelection === "Rock") && (computerSelection === "Paper")) : alert("You lose! Paper beats Rock.")
+      break;
+
+      case ((playerSelection === "Rock") && (computerSelection === "Scissors")??????
+
+    }
 
 
 
- <script>
-
-
- </script>
+</script>
 </body>
 </html>
