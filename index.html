@@ -12,15 +12,13 @@
 <body>
 <script>
 
+let wins = 0;
+let losses = 0;
 let playerSelection;
 let computerSelection;
 
-  function game(){
-
-  }
-
-  function playerPlay(rock){
-    playerSelection = prompt("Type: Rock, Paper or Scissors.");
+  function playerPlay(){
+    playerSelection = prompt("Type: Rock, Paper or Scissors.", "Rock");
     playerSelection = playerSelection.toLowerCase().charAt(0).toUpperCase() + playerSelection.slice(1);
     console.log(playerSelection);
     return playerSelection;
@@ -34,19 +32,55 @@ let computerSelection;
     (computerSelection == 2) ? computerSelection = "Scissors":
     "";
     console.log(computerSelection);
-    return (computerSelection);
+    return computerSelection;
   }
 
-    switch(playerPlay() === computerPlay()) {
-      case true : alert("Tie! Play again.");
-      break;
 
-      case ((playerSelection === "Rock") && (computerSelection === "Paper")) : alert("You lose! Paper beats Rock.")
-      break;
+function playRound() {
+  if (playerPlay() === computerPlay()){
+    wins ++;
+    losses ++;
+    alert("Tie!");
+  } else if ((playerSelection === "Rock") && (computerSelection === "Paper")) {
+    losses ++;
+    alert("You lose! Paper covers rock.");
+  } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
+    wins ++;
+    alert("You win! Rock beats scissors.");
+  } else if ((playerSelection === "Paper") && (computerSelection === "Scissors")) {
+    losses ++;
+    alert("You lose! Scissors cut paper.");
+  } else if ((playerSelection === "Paper") && (computerSelection === "Rock")) {
+    wins ++;
+    alert("You win! Paper covers rock.");
+  } else if ((playerSelection === "Scissors") && (computerSelection === "Rock")) {
+    losses ++;
+    alert("You lose! Rock beats scissors.");
+  } else if ((playerSelection === "Scissors") && (computerSelection === "Paper")) {
+    wins ++;
+    alert("You win! Scissors cut paper.");
+  } else {
+    alert ("Something went wrong. Play again.");
+  }
+  console.log(wins, losses)
+}
 
-      case ((playerSelection === "Rock") && (computerSelection === "Scissors")??????
 
-    }
+playRound();
+playRound();
+playRound();
+playRound();
+playRound();
+
+if (wins > losses) {
+  alert("Congratulations you won the game!");
+} else if (wins < losses) {
+  alert("Too bad, you lost the game.");
+} else {
+  alert("The game is a tie!");
+}
+
+
 
 
 
